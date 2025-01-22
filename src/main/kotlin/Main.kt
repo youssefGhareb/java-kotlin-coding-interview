@@ -1,14 +1,13 @@
-import model.AlwaysRockPlayer
+import model.ConstantMovePlayer
 import model.Game
+import model.Move
 import model.Player
-import model.RoundResult
-import util.evaluateRound
 
 fun main(args: Array<String>) {
 
     val playerA = Player()
-    val playerB = AlwaysRockPlayer()
+    val playerB = ConstantMovePlayer(Move.ROCK)
 
-    val game: Game = Game(playerA, playerB, 100)
+    val game = Game(playerA, playerB, 100)
     game.play(true)
 }
