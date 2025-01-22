@@ -7,15 +7,12 @@ class Game(
     private val playerTwo: Player,
     private val numOfRounds: Int,
 ) {
-    private val rounds: MutableList<Round> = mutableListOf()
-    private var playerOneWins = 0
-    private var playerTwoWins = 0
+    val rounds: MutableList<Round> = mutableListOf()
+    var playerOneWins = 0
+    var playerTwoWins = 0
+    var draws = 0
 
     fun play(detailedResult: Boolean) {
-        var playerOneWins = 0
-        var playerTwoWins = 0
-        var draws = 0
-
         repeat(numOfRounds){ roundNumber ->
             val playerOneMove = playerOne.chooseMove()
             val playerTwoMove = playerTwo.chooseMove()
@@ -66,6 +63,8 @@ class Game(
                 RoundResult.PLAYER_TWO_WIN -> println("Player two wins this round!")
                 RoundResult.DRAW -> println("This round ends in a draw!")
             }
+
+            println("-----------------------------------------------")
         }
     }
 }
