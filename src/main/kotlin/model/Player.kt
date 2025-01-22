@@ -5,6 +5,6 @@ open class Player() {
 
     // Method that randomly chooses a move for the player from the available moves
     open fun chooseMove(): Move {
-        return Move.values().random();  // Randomly selects a move from the Move enum
+        return Move.values().random()  // Randomly selects a move from the Move enum
     }
 }
