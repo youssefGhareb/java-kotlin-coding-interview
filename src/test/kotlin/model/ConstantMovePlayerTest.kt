@@ -6,8 +6,12 @@ import kotlin.test.assertEquals
 class ConstantMovePlayerTest {
 
     @Test
-    fun `AlwaysRockPlayer should always play ROCK`() {
-        val playerA = ConstantMovePlayer(Move.ROCK)
-        assertEquals(Move.ROCK, playerA.chooseMove())
+    fun `ConstantMovePlayer should always play the given move`() {
+        var player = ConstantMovePlayer(Move.ROCK)
+        assertEquals(Move.ROCK, player.chooseMove())
+        player = ConstantMovePlayer(Move.PAPER)
+        assertEquals(Move.PAPER, player.chooseMove())
+        player = ConstantMovePlayer(Move.SCISSORS)
+        assertEquals(Move.SCISSORS, player.chooseMove())
     }
 }
