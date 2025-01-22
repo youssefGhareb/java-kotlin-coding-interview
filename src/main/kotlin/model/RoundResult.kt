@@ -1,5 +1,5 @@
 package model
 
 enum class RoundResult {
-    WIN,LOSE,DRAW
+    PLAYER_ONE_WIN,PLAYER_TWO_WIN,DRAW
 }

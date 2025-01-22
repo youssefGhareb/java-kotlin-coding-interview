@@ -1,11 +1,7 @@
 package model
 
-class Player(private var isRockPlayer: Boolean) {
-    fun chooseMove(): Move {
-        return if (isRockPlayer){
-            Move.ROCK
-        } else {
-            Move.values().random()
-        }
+open class Player() {
+    open fun chooseMove(): Move {
+        return Move.values().random();
     }
 }

@@ -3,12 +3,12 @@ package util
 import model.Move
 import model.RoundResult
 
-fun evaluateRound(move1: Move, move2: Move): RoundResult {
+fun evaluateRound(playerOneMove: Move, playerTwoMove: Move): RoundResult {
     return when {
-        move1 == move2 -> RoundResult.DRAW
-        move1 == Move.ROCK && move2 == Move.SCISSORS -> RoundResult.WIN
-        move1 == Move.PAPER && move2 == Move.ROCK -> RoundResult.WIN
-        move1 == Move.SCISSORS && move2 == Move.PAPER -> RoundResult.WIN
-        else -> RoundResult.LOSE
+        playerOneMove == playerTwoMove -> RoundResult.DRAW
+        playerOneMove == Move.ROCK && playerTwoMove == Move.SCISSORS -> RoundResult.PLAYER_ONE_WIN
+        playerOneMove == Move.PAPER && playerTwoMove == Move.ROCK -> RoundResult.PLAYER_ONE_WIN
+        playerOneMove == Move.SCISSORS && playerTwoMove == Move.PAPER -> RoundResult.PLAYER_ONE_WIN
+        else -> RoundResult.PLAYER_TWO_WIN
     }
 }
