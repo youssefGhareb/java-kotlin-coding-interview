@@ -10,6 +10,7 @@ class Game(
     private val rounds: MutableList<Round> = mutableListOf()
     private var playerOneWins = 0
     private var playerTwoWins = 0
+
     fun play(detailedResult: Boolean) {
         var playerOneWins = 0
         var playerTwoWins = 0
@@ -36,6 +37,10 @@ class Game(
             )
         }
 
+        if (detailedResult) {
+            detailedResultPrint();
+        }
+
         println("Player A wins $playerOneWins of $numOfRounds rounds")
         println("Player B wins $playerTwoWins of $numOfRounds rounds")
         println("Draws: $draws of $numOfRounds rounds")
@@ -47,4 +52,20 @@ class Game(
 
     }
 
+    private fun detailedResultPrint(){
+        println("Detailed Game Summary:")
+        rounds.forEach { round ->
+            println(
+                "Round ${round.roundNumber}: " +
+                        "Player One chose ${round.playerOneMove}, " +
+                        "Player Two chose ${round.playerTwoMove} -> "
+            )
+
+            when (round.result) {
+                RoundResult.PLAYER_ONE_WIN -> println("Player one wins this round!")
+                RoundResult.PLAYER_TWO_WIN -> println("Player two wins this round!")
+                RoundResult.DRAW -> println("This round ends in a draw!")
+            }
+        }
+    }
 }
